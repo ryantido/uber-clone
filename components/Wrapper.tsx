@@ -1,13 +1,20 @@
-import { View, ViewProps } from 'react-native'
+import { ScrollView, StatusBar, ViewProps } from "react-native";
 
 interface WrapperProps extends ViewProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export default function Wrapper({ children, ...props }: WrapperProps ) {
+export default function Wrapper({ children, ...props }: WrapperProps) {
   return (
-    <View style={{ flex: 1 }} {...props}>
-        {children}
-    </View>
-  )
+    <ScrollView
+      style={{
+        flex: 1,
+        paddingBlock: StatusBar.currentHeight,
+        paddingInline: 12,
+      }}
+      {...props}
+    >
+      {children}
+    </ScrollView>
+  );
 }
