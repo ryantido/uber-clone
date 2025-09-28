@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const initialState = {
   origin: null,
   destination: null,
   travelTimeInformation: null,
@@ -24,3 +24,13 @@ export const navSlice = createSlice({
 
 export const { setOrigin, setDestination, setTravelTimeInformation } =
   navSlice.actions;
+
+export const selectOrigin = (state: { nav: typeof initialState }) =>
+  state.nav.origin;
+export const selectDestination = (state: { nav: typeof initialState }) =>
+  state.nav.destination;
+export const selectTravelTimeInformation = (state: {
+  nav: typeof initialState;
+}) => state.nav.travelTimeInformation;
+
+export default navSlice.reducer;
